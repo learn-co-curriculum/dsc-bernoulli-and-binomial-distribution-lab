@@ -1,0 +1,1 @@
+# dsc-1-08-15-bernoulli-and-binomial-distribution-lab
