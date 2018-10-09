@@ -108,10 +108,6 @@ plt.ylabel('Fraction')
 plt.title('Total number of strikes in a bowling game');
 ```
 
-
-![png](index_files/index_19_0.png)
-
-
 You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that occasionally perfect games will show up randomly. 
 
 ## Summary
