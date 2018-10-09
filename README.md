@@ -8,7 +8,7 @@ In this lab, you'll practice your newly gained knowledge on the Bernoulli and Bi
 You will be able to:
 * Apply the formulas for the Binomial and Bernoulli distribution
 * Apply NumPy to randomly generate Binomial and Bernoulli trials
-* Use Matplotlib to generate binomial and bernoulli trials with various probabilities
+* Use Matplotlib to generate Binomial and Bernoulli trials with various probabilities
 
 ## Apply the formulas for the Binomial and Bernoulli distribution
 
