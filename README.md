@@ -37,7 +37,10 @@ p_3_strikes
 
 
 
-Now, create a function for the Binomial distribution with three arguments $n$, $p$ and $k$ just like in the formula.
+Now, create a function for the Binomial distribution with three arguments $n$, $p$ and $k$ just like in the formula:
+
+$$ \large P(Y=k)= \binom{n}{k} p^k(1-p)^{(n-k)}$$ 
+
 
 
 ```python
@@ -76,7 +79,7 @@ Repeat the experiment 5000 times.
 
 
 ```python
-np.random.seed(123)
+np.random.seed(243)
 n = 5000
 iteration = []
 for loop in range(n):
@@ -92,23 +95,42 @@ print(counts)
 ```
 
     [0 1 2 3 4 5 6 7 8]
-    [ 310  941 1368 1286  707  297   78   11    2]
+    [ 258  922 1475 1264  706  272   86   13    4]
 
 
 ## Visualize these results
 
-Make sure to set an appropriate title and appropriate y-axis label
+Create the PMF using these empiric results (that is, the proportions based on the values we obtained running the experiment 5000 times).
 
 
 ```python
 import matplotlib.pyplot as plt
-plt.bar(values, counts/5000, align='center', alpha=0.5)
+plt.bar(values, counts/5000, align='center', alpha=0.8)
 plt.xticks(values)
 plt.ylabel('Fraction')
-plt.title('Total number of strikes in a bowling game');
+plt.title('PMF of strikes in a bowling game');
 ```
 
-You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that occasionally perfect games will show up randomly. 
+
+![png](index_files/index_13_0.png)
+
+
+You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that occasionally perfect games will show up occasionally. 
+
+Next, let's create the CDF based on these results. You can use `np.cumsum` to obtain cumulative probabilities.
+
+
+```python
+import matplotlib.pyplot as plt
+plt.bar(values, np.cumsum(counts/5000), align='center', alpha=0.8)
+plt.xticks(values)
+plt.ylabel('Fraction')
+plt.title('CDF of strikes in a bowling game');
+```
+
+
+![png](index_files/index_15_0.png)
+
 
 ## Summary
 
