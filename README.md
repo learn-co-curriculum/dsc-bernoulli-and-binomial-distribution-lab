@@ -6,11 +6,11 @@ In this lab, you'll practice your newly gained knowledge on the Bernoulli and Bi
 
 ## Objectives
 You will be able to:
-* Apply the formulas for the Binomial and Bernoulli distribution
+* Apply the formulas for the Binomial and Bernoulli distributions
 * Apply NumPy to randomly generate Binomial and Bernoulli trials
 * Use Matplotlib to generate Binomial and Bernoulli trials with various probabilities
 
-## Apply the formulas for the Binomial and Bernoulli distribution
+## Apply the formulas for the Binomial and Bernoulli distributions
 
 When playing a game of bowling, what is the probability of throwing exactly 3 strikes in a game with 10 rounds? Assume that the probability of throwing a strike is 25% for each round. Use the formula for the Binomial distribution to get to the answer. You've created this before, so we provide you with the function for factorials again:
 
@@ -80,7 +80,7 @@ def binom_distr(n,p,k):
     return p_k
 ```
 
-Validate your previous result applying your new function.
+Validate your previous result by applying your new function.
 
 
 ```python
@@ -107,7 +107,7 @@ binom_distr(10,0.25,3)
 
 
 
-Now write a for loop along with your function to compute the probability that you have five strikes or more in one game. You'll want to use numpy here!
+Now write a `for` loop along with your function to compute the probability that you have five strikes or more in one game. You'll want to use `numpy` here!
 
 
 ```python
@@ -174,7 +174,7 @@ print(counts)
 
 ## Visualize these results
 
-Create the PMF using these empiric results (that is, the proportions based on the values we obtained running the experiment 5000 times).
+Create the PMF using these empirical results (that is, the proportions based on the values we obtained running the experiment 5000 times).
 
 
 ```python
@@ -203,7 +203,7 @@ plt.title('PMF of strikes in a bowling game');
 ![png](index_files/index_21_0.png)
 
 
-You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that occasionally perfect games will show up occasionally. 
+You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and/or perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that perfect games will show up occasionally. 
 
 Next, let's create the CDF based on these results. You can use `np.cumsum` to obtain cumulative probabilities.
 
@@ -236,4 +236,4 @@ plt.title('CDF of strikes in a bowling game');
 
 ## Summary
 
-Congratulations! In this lab, you practiced your newly gained knowledge on the Bernoulli and Binomial Distribution.
+Congratulations! In this lab, you practiced your newly gained knowledge of the Bernoulli and Binomial Distribution.
