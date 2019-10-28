@@ -170,6 +170,7 @@ Create the PMF using these empirical results (that is, the proportions based on 
 
 ```python
 import matplotlib.pyplot as plt
+%matplotlib inline
 #
 #
 #
