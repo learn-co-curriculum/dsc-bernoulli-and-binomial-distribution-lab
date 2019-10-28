@@ -6,9 +6,10 @@ In this lab, you'll practice your newly gained knowledge on the Bernoulli and Bi
 
 ## Objectives
 You will be able to:
-* Apply the formulas for the Binomial and Bernoulli distributions
-* Apply NumPy to randomly generate Binomial and Bernoulli trials
-* Use Matplotlib to generate Binomial and Bernoulli trials with various probabilities
+
+* Apply the formulas for the Binomial and Bernoulli distribution to calculate the probability of a specific event
+* Use `numpy` to randomly generate Binomial and Bernoulli trials
+* Use `matplotlib` to show the output of generated Binomial and Bernoulli trials
 
 ## Apply the formulas for the Binomial and Bernoulli distributions
 
@@ -29,13 +30,6 @@ def factorial(n):
 p_3_strikes = None #answer = 0.2502822
 ```
 
-
-
-
-    0.25028228759765625
-
-
-
 Now, create a function for the Binomial distribution with three arguments $n$, $p$ and $k$ just like in the formula:
 
 $$ \large P(Y=k)= \binom{n}{k} p^k(1-p)^{(n-k)}$$ 
@@ -54,13 +48,6 @@ Validate your previous result by applying your new function.
 # Your code here
 ```
 
-
-
-
-    0.25028228759765625
-
-
-
 Now write a `for` loop along with your function to compute the probability that you have five strikes or more in one game. You'll want to use `numpy` here!
 
 
@@ -75,7 +62,7 @@ Repeat the experiment 5000 times.
 
 
 ```python
-# leave the random seed here 
+# leave the random seed here for reproducibility of results
 np.random.seed(123)
 #
 #
@@ -90,10 +77,6 @@ np.random.seed(123)
 # [ 310  941 1368 1286  707  297   78   11    2]
 ```
 
-    [0 1 2 3 4 5 6 7 8]
-    [ 258  922 1475 1264  706  272   86   13    4]
-
-
 ## Visualize these results
 
 Create the PMF using these empirical results (that is, the proportions based on the values we obtained running the experiment 5000 times).
@@ -107,11 +90,7 @@ import matplotlib.pyplot as plt
 #
 ```
 
-
-![png](index_files/index_13_0.png)
-
-
-You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and/or perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that perfect games will show up occasionally. 
+You should see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and/or perfect game of 9 and 10 strikes didn't even occur once! If you change the random seed, however, you'll see that perfect games will show up occasionally. 
 
 Next, let's create the CDF based on these results. You can use `np.cumsum` to obtain cumulative probabilities.
 
@@ -123,10 +102,6 @@ Next, let's create the CDF based on these results. You can use `np.cumsum` to ob
 #
 #
 ```
-
-
-![png](index_files/index_15_0.png)
-
 
 ## Summary
 
