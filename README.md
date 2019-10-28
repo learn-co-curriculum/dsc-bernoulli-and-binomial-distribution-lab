@@ -6,9 +6,10 @@ In this lab, you'll practice your newly gained knowledge on the Bernoulli and Bi
 
 ## Objectives
 You will be able to:
-* Apply the formulas for the Binomial and Bernoulli distributions
-* Apply NumPy to randomly generate Binomial and Bernoulli trials
-* Use Matplotlib to generate Binomial and Bernoulli trials with various probabilities
+
+* Apply the formulas for the Binomial and Bernoulli distribution to calculate the probability of a specific event
+* Use `numpy` to randomly generate Binomial and Bernoulli trials
+* Use `matplotlib` to show the output of generated Binomial and Bernoulli trials
 
 ## Apply the formulas for the Binomial and Bernoulli distributions
 
@@ -28,13 +29,6 @@ def factorial(n):
 ```python
 p_3_strikes = None #answer = 0.2502822
 ```
-
-
-
-
-    0.25028228759765625
-
-
 
 
 ```python
@@ -88,13 +82,6 @@ Validate your previous result by applying your new function.
 ```
 
 
-
-
-    0.25028228759765625
-
-
-
-
 ```python
 # __SOLUTION__ 
 binom_distr(10,0.25,3)
@@ -122,7 +109,15 @@ import numpy as np
 prob = 0
 for i in np.arange(5,11):
      prob += binom_distr(10,0.25,i)
+prob
 ```
+
+
+
+
+    0.07812690734863281
+
+
 
 ## Use a simulation to get the probabilities for all the potential outcomes
 
@@ -130,7 +125,7 @@ Repeat the experiment 5000 times.
 
 
 ```python
-# leave the random seed here 
+# leave the random seed here for reproducibility of results
 np.random.seed(123)
 #
 #
@@ -145,14 +140,10 @@ np.random.seed(123)
 # [ 310  941 1368 1286  707  297   78   11    2]
 ```
 
-    [0 1 2 3 4 5 6 7 8]
-    [ 258  922 1475 1264  706  272   86   13    4]
-
-
 
 ```python
 # __SOLUTION__ 
-np.random.seed(243)
+np.random.seed(123)
 n = 5000
 iteration = []
 for loop in range(n):
@@ -169,7 +160,7 @@ print(counts)
 ```
 
     [0 1 2 3 4 5 6 7 8]
-    [ 258  922 1475 1264  706  272   86   13    4]
+    [ 310  941 1368 1286  707  297   78   11    2]
 
 
 ## Visualize these results
@@ -186,13 +177,10 @@ import matplotlib.pyplot as plt
 ```
 
 
-![png](index_files/index_20_0.png)
-
-
-
 ```python
 # __SOLUTION__ 
 import matplotlib.pyplot as plt
+%matplotlib inline
 plt.bar(values, counts/5000, align='center', alpha=0.8)
 plt.xticks(values)
 plt.ylabel('Fraction')
@@ -203,7 +191,7 @@ plt.title('PMF of strikes in a bowling game');
 ![png](index_files/index_21_0.png)
 
 
-You can see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and/or perfect game of 9 and 10 strikes didn't even occur once! If you change your seed, however, you'll see that perfect games will show up occasionally. 
+You should see that, with a 25% strike hit rate, even when simulating 5000 times, an almost perfect and/or perfect game of 9 and 10 strikes didn't even occur once! If you change the random seed, however, you'll see that perfect games will show up occasionally. 
 
 Next, let's create the CDF based on these results. You can use `np.cumsum` to obtain cumulative probabilities.
 
@@ -215,10 +203,6 @@ Next, let's create the CDF based on these results. You can use `np.cumsum` to ob
 #
 #
 ```
-
-
-![png](index_files/index_23_0.png)
-
 
 
 ```python
